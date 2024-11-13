@@ -5,7 +5,7 @@ OUTPUT="XMind8.AppImage"
 
 all:
 	echo "Building: $(OUTPUT)"
-	wget -O $(DESTINATION) -c $(SOURCE)
+	wget -qO $(DESTINATION) -c $(SOURCE)
 
 	rm -rf AppDir/opt
 	mkdir --parents AppDir/opt/application
