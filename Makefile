@@ -10,7 +10,7 @@ all:
 	rm -rf AppDir/opt
 	mkdir -p AppDir/opt/application xmind
 
-	unzip $(DESTINATION) -d -qq xmind
+	unzip -qq $(DESTINATION) -d xmind
 
 	mv xmind/XMind_amd64/* AppDir/opt/application
 	mv xmind/plugins AppDir/opt/application
