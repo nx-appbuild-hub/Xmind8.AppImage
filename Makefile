@@ -23,5 +23,5 @@ all:
 
 	chmod +x appimagetool
 
-	ARCH=x86_64 ./appimagetool.AppImage AppDir $(OUTPUT)
+	ARCH=x86_64 ./appimagetool AppDir $(OUTPUT)
 	chmod +x $(OUTPUT)
