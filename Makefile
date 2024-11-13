@@ -1,6 +1,6 @@
 SOURCE="https://dl3.xmind.net/xmind-8-update8-linux.zip"
 DESTINATION="build.zip"
-OUTPUT="XMind8.AppImage"
+OUTPUT="Xmind8.AppImage"
 
 
 all:
@@ -8,10 +8,9 @@ all:
 	wget -qO $(DESTINATION) -c $(SOURCE)
 
 	rm -rf AppDir/opt
-	mkdir --parents AppDir/opt/application
-	mkdir --parents xmind
+	mkdir -p AppDir/opt/application xmind
 
-	unzip $(DESTINATION) -d xmind
+	unzip $(DESTINATION) -d -qq xmind
 
 	mv xmind/XMind_amd64/* AppDir/opt/application
 	mv xmind/plugins AppDir/opt/application
@@ -19,11 +18,10 @@ all:
 	mv xmind/fonts  AppDir/opt/application
 	cp XMind.ini  AppDir/opt/application
 
-	chmod +x AppDir/AppRun
+	curl -sLo appimagetool \
+    https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage
 
-	export ARCH=x86_64 && bin/appimagetool.AppImage AppDir $(OUTPUT)
+	chmod +x appimagetool
+
+	ARCH=x86_64 ./appimagetool.AppImage AppDir $(OUTPUT)
 	chmod +x $(OUTPUT)
-
-	rm -rf xmind
-	rm -f $(DESTINATION)
-	rm -rf AppDir/opt

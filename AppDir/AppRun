@@ -1,7 +1,6 @@
-#! /bin/bash
-set -e
+#! /bin/sh
 
 
-cd ${APPDIR}/opt/application
-
-exec ${APPDIR}/opt/application/XMind $@
+export LD_LIBRARY_PATH=$APPDIR/usr/lib:$APPDIR/usr/lib/x86_64-linux-gnu:$APPDIR/lib/x86_64-linux-gnu:$APPDIR/lib:$LD_LIBRARY_PATH
+export PATH=$APPDIR/bin:$APPDIR/sbin:$APPDIR/usr/bin:$APPDIR/usr/sbin:$PATH
+exec ${APPDIR}/opt/application/XMind "$@"
