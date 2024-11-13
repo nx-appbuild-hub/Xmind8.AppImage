@@ -13,10 +13,7 @@ jobs:
 
     - name: Deps
       run: |
-        sudo apt-get -y install libfuse2
-
-        curl -o apprepo https://github.com/area-of-dev/apprepo.AppImage/releases/download/latest/apprepo.AppImage
-        chmod +x apprepo
+        sudo apt-get -y install libfuse2 desktop-file-utils
 
     - name: Build
       run: |
