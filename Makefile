@@ -1,6 +1,6 @@
 SOURCE="https://dl3.xmind.net/xmind-8-update8-linux.zip"
 DESTINATION="build.zip"
-OUTPUT="XMind-8.AppImage"
+OUTPUT="XMind8.AppImage"
 
 
 all:
@@ -10,9 +10,9 @@ all:
 	rm -rf AppDir/opt
 	mkdir --parents AppDir/opt/application
 	mkdir --parents xmind
-	
+
 	unzip $(DESTINATION) -d xmind
-	
+
 	mv xmind/XMind_amd64/* AppDir/opt/application
 	mv xmind/plugins AppDir/opt/application
 	mv xmind/features AppDir/opt/application
@@ -27,4 +27,3 @@ all:
 	rm -rf xmind
 	rm -f $(DESTINATION)
 	rm -rf AppDir/opt
-
